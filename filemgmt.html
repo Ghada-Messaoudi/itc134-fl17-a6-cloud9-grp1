@@ -1,0 +1,195 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" type="image/png" href="img/icon.png" />
+    <title>File Management Commands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="burger">
+            <div class="burger__patty"></div>
+        </div>
+
+        <ul class="nav__list">
+            <li class="nav__item">
+                <a href="index.html" class="nav__link c-blue"><img src="img/home-icon.png" alt=""></a>
+            </li>
+            <li class="nav__item">
+                <a href="index.html#2" class="nav__link c-yellow scrolly"><img src="img/about-icon.png" alt=""></a>
+            </li>
+            <li class="nav__item">
+                <a href="index.html#3" class="nav__link c-red"><img src="img/projects-icon.png" alt=""></a>
+            </li>
+            <li class="nav__item">
+                <a href="index.html#4" class="nav__link c-green"><img src="img/contact-icon.png" alt=""></a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="panel b-blue" id="1">
+        <article class="panel__wrapper">
+            <div class="panel__content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="home-content">
+                                <div class="home-heading">
+                                    <h1>File Management in UNIX</h1>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="home-box-content">
+                                            <div class="text-content">
+                                                <h2>touch</h2>
+
+                                                <p>The "touch" command will either create a new file with the name you give it or, if a file with that name already exists, it will update a file's datestamp. The file will appear in your current working directory.</p>
+
+                                                <img src="images/fileMgmt1.PNG" alt="touch file.txt">
+
+                                                <p><code>touch file.txt</code> will create a new text file with the name "my_file.txt".</p>
+
+                                                <p>To create many files at once you can use the format shown in the example below.</p>
+
+                                                <img src="images/fileMgmt2.PNG" alt="touch making several files">
+
+                                                <p><code>touch file{1.txt,2.txt,3.txt}</code> will create three new files named "file1.txt","file2.txt" and "file3.txt".</p>
+
+                                                <h2>mkdir</h2>
+
+                                                <p>The "mkdir" command creates new directories, also known as folders.</p>
+
+                                                <img src="images/fileMgmt3.PNG" alt="mkdir making a new folder">
+
+                                                <p><code>mkdir myFolder</code> creates the directory "myFolder" in the current working directory. To create nested directories use the "-p" option to create parent directories if they don't exist already, as
+                                                    shown below.</p>
+
+                                                <img src="images/fileMgmt4.PNG" alt="mkdir making a nested folder">
+
+                                                <p><code>mkdir myFolder/innerFolder/innermostFolder</code> will create a directory called "innermostFolder" inside "innerFolder" that will itself be inside "myFolder" even if "myFolder" and "innerFolder" don't
+                                                    exist yet.</p>
+
+                                                <h2>ls</h2>
+
+                                                <p>The "ls" command will show you the contents of a directory. By default (without any arguments or options passed to it) it will show all non-hidden files and directories (files with names that don't start
+                                                    with a "." prefix)</p>
+
+                                                <img src="images/fileMgmt5.PNG" alt="ls">
+
+                                                <p><code>ls</code> will by default show only the file and directory names. Directories end with a "/"</p>
+
+                                                <img src="images/fileMgmt6.PNG" alt="directory contents">
+
+                                                <p>The "-l" option will list the contents in long form, showing file permissions, author, size, and time last modified.</p>
+
+                                                <img src="images/fileMgmt7.PNG" alt="ls -la">
+
+                                                <p><code>ls -la</code> will also, with the "-a" (all) option, reveal the hidden files that start with ".", including the parent directory of the current directory, which is represented by "../"</p>
+
+                                                <img src="images/fileMgmt8.PNG" alt="directory contents in long form">
+
+                                                <h2>cp</h2>
+
+                                                <p>The "cp" command copies files, either to a different location or with a new name, or both.</p>
+
+                                                <img src="images/fileMgmt9.PNG" alt="copying a file to a new location">
+
+                                                <p><code>cp file.txt myFolder/newFileName.txt</code> will copy the contents of "file.txt" and put them in a file named "newFileName.txt" in the folder "myFolder/"</p>
+
+                                                <p>The "-r" (recursive) option allows copying of directories and their contents.</p>
+
+                                                <img src="images/fileMgmt10.PNG" alt="copying a directory">
+
+                                                <p><code>cp -r myFolder/ destination/</code> will either copy the directory "myFolder" into the directory "destination", if it exists, or place the copy into the current working directory with the name "destination"
+                                                    if it doesn't already exist.</p>
+
+                                                <p>Using the wildcard character "*" and a file extension allows you to copy all files of a particular type.</p>
+
+                                                <img src="images/fileMgmt11.PNG" alt="copying all plain text files in a directory">
+
+                                                <p><code>cp *.txt destination/</code></p> will copy all plain text files (with the .txt file extension) to the folder "destination"
+
+                                                <h2>mv</h2>
+
+                                                <p>The "mv" command moves files and directories and/or renames them, similar to the "cp" command except the original file is removed after execution.</p>
+
+                                                <img src="images/fileMgmt12.PNG" alt="move a file to different folder">
+
+                                                <p><code>mv file.txt myFolder/newFileName.txt</code> will move "file.txt" from the current working directory to the directory "myFolder" and rename the file "newFileName.txt"</p>
+
+                                                <img src="images/fileMgmt13.PNG" alt="rename a file">
+
+                                                <p><code>mv file.txt newFileName.txt</code> will simply rename "file.txt" as "newFileName.txt" and leave it where it is.</p>
+
+                                                <h2>rm</h2>
+
+                                                <p>The "rm" command removes (deletes) files and directories. Multiple files can be removed at once.</p>
+
+                                                <img src="images/fileMgmt14.PNG" alt="remove multiple files">
+
+                                                <p><code>rm -i file1.txt file2.txt</code> will remove the both file1.txt and file2.txt. The "-i" option prompts the user to each confirm the file removal (respond with "y" or "yes" to confirm and "n" or "no"
+                                                    to cancel)</p>
+
+                                                <p>To remove directories use the "-r" option</p>
+
+                                                <img src="images/fileMgmt15.PNG" alt="remove folder">
+
+                                                <p><code>rm -r myFolder/</code> will remove the directory "myFolder" and its contents.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="footer">
+                                <p>Copyright &copy; 2017 Tech Geeks | Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
