@@ -1,0 +1,160 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" type="image/png" href="img/icon.png" />
+    <title>Navigation Commands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="burger">
+            <div class="burger__patty"></div>
+        </div>
+
+        <ul class="nav__list">
+            <li class="nav__item">
+                <a href="index.html" class="nav__link c-blue"><img src="img/home-icon.png" alt=""></a>
+            </li>
+            <li class="nav__item">
+                <a href="index.html#2" class="nav__link c-yellow scrolly"><img src="img/about-icon.png" alt=""></a>
+            </li>
+            <li class="nav__item">
+                <a href="index.html#3" class="nav__link c-red"><img src="img/projects-icon.png" alt=""></a>
+            </li>
+            <li class="nav__item">
+                <a href="index.html#4" class="nav__link c-green"><img src="img/contact-icon.png" alt=""></a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="panel b-blue" id="1">
+        <article class="panel__wrapper">
+            <div class="panel__content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="home-content">
+                                <div class="home-heading">
+                                    <h1>Navigation in UNIX</h1>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="home-box-content">
+                                            <div class="text-content">
+                                                <h3>Essential navigation commands in Unix</h3>
+                                                <ul>
+                                                    <li>
+                                                        <h4>* pwd – confirm the current directory you're in</h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4>* ls – list files and directories</h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4>* cd – change directory Additional commands</h4>
+                                                    </li>
+                                                </ul>
+                                                <h3>While not helping in your navigation, these commands will definitely help you learn more about where and what you're looking at in your file system tree:</h3>
+                                                <ul>
+                                                    <li>
+                                                        <h4>* file – confirm the type of a file</h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4>* find – find files and directories</h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4>* locate – quickly find files and directories using locatedb database</h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4>* dirname – extract the directory name from a full path to a file</h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4>* basename – strip directory and suffix from a full path to a file</h4>
+                                                    </li>
+                                                </ul>
+                                                <h3>No matter if you are a developer or a normal UNIX user, creating shortcuts for your usual tasks is a very helpful thing that will gain you precious time when navigating and typing. Using <strong>alias</strong> is the key to achieving speed and efficiency in UNIX. 
+                                                 And if you want to get rid of an alias, just use the <strong>unalias</strong> commandThese some basic <strong>alias</strong> that helps a lot in navigation:</h3>
+                                                <ul>
+                                                    <li>
+                                                        <h4>* alias up='cd .. ; pwd'</h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4>* alias up2='cd ../.. ; pwd'</h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4>* alias up3='cd ../../.. ; pwd'</h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4>* alias chrome="open -a \"Google Chrome\""</h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4>* alias folders="find . -maxdepth 1 -type d -print | xargs du -sk | sort -rn"   (Shows the size (sorted) of only the folders in this directory)</h4>
+                                                    </li>
+                                                </ul>
+                                                <h3><strong>pushd</strong> and <strong>popd</strong>: pushd adds a directory to the top of the stack and popd removes a directory from the top of the stack.The pushd command saves the current working directory in memory so it can be returned to at any time, 
+                                                optionally changing to a new directory. The popd command returns to the path at the top of the directory stack. This directory stack is accessed by the command dirs in Unix</h3>
+                                                <ul>
+                                                    <li>
+                                                        <h4>* Pushd command – puts/adds directory paths onto a directory stack (history) and later allowing you to navigate back to any directory in history. While you add directories to the stack, it also echoes what’s existing in history (or “stack”).</h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4>* Popd command – removes a directory from the top of the stack or history.</h4>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="footer">
+                                <p>Copyright &copy; 2017 Tech Geeks | Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
