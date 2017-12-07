@@ -67,8 +67,28 @@
     
     <h3>mv</h3>
     
-    <p>The "mv" command moves files and/or renames them.</p>
+    <p>The "mv" command moves files and directories and/or renames them, similar to the "cp" command except the original file is removed after execution.</p>
     
+    <img src="images/fileMgmt12.PNG" alt="move a file to different folder">
     
+    <p><code>mv file.txt myFolder/newFileName.txt</code> will move "file.txt" from the current working directory to the directory "myFolder" and rename the file "newFileName.txt"</p>
+    
+    <img src="images/fileMgmt13.PNG" alt="rename a file">
+    
+    <p><code>mv file.txt newFileName.txt</code> will simply rename "file.txt" as "newFileName.txt" and leave it where it is.</p>
+    
+    <h3>rm</h3>
+    
+    <p>The "rm" command removes (deletes) files and directories. Multiple files can be removed at once.</p>
+    
+    <img src="images/fileMgmt14.PNG" alt="remove multiple files">
+    
+    <p><code>rm -i file1.txt file2.txt</code> will remove the both file1.txt and file2.txt. The "-i" option prompts the user to each confirm the file removal (respond with "y" or "yes" to confirm and "n" or "no" to cancel)</p>
+    
+    <p>To remove directories use the "-r" option</p>
+    
+    <img src="images/fileMgmt15.PNG" alt="remove folder">
+    
+    <p><code>rm -r myFolder/</code> will remove the directory "myFolder" and its contents.</p>
     
 </html>
