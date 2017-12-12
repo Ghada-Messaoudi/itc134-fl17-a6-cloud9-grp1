@@ -1,147 +1,169 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+    code {
+      white-space: pre;
+    }
+  </style>
 </head>
+
 <body>
-<h1 id="getting-more-done-on-the-command-line">Getting More Done on The Command Line</h1>
-<p>While the other sections of this introduction have covered the most basic UNIX features that every beginner should focus on, this section is all about getting a taste of what else can be done on the command line. Command line apps can be used for a variety of office productivity tasks (document production, spreadsheets, double-entry bookkeeping, journaling, presentation deck building, etc), media consumption, and system management. While command line apps might not have all the visual flourishes of their graphical counterparts, many are incredibly powerful, flexible, and portable.</p>
-<p>Their portability allows them to run on a wide variety of different software and hardware platforms, making it easier to run the same apps everywhere. Their minimalist, text-centric aesthetic can easily fit in wide variety of environments, and their appearance is easily customized using existing terminal tools. Finally, many of them can be scripted in ways that are almost impossible to replicate in GUI apps. Below is a brief overview of some of the capabilities of five of these programs. It’s impossible to list, let alone explain all of their features in such a short tutorial, but this will hopefully give a taste of what's possible and where to get started.</p>
-<h2 id="cmus">CMUS</h2>
-<p><strong>A quick note on content: All of the music used in this demo was downloaded from <a href="http://freemusicarchive.org/">The Free Music Archive</a> because I didn't have any actual music on the machine I used for this. I just grabbed a mix of their top hits / top alphabetical hits / a few random songs from their Christmas section because all of those things were easily linked on their home page. I'm in no way endorsing any of this music on aesthetic, grammatical, ideological, or religious grounds. It was free, legal and easy to download.</strong></p>
-<p>CMUS is a command line music player. It can catalog audio across a complex file hierarchy and play them back from inside a terminal. It's particularly useful on a system with limited resources because of how lightweight it is, but it's also popular among those who enjoy working in the terminal, or who simply appreciate its simplicity, reliability and impressive feature set.</p>
-Debian/Ubuntu Installation:
-<pre><code>sudo apt-get install cmus</code></pre>
-<div class="figure">
-<img src="images/CMUS1.png" title="Not much going on." alt="First Launch:" />
-<p class="caption">First Launch:</p>
-</div>
-<p>CMUS launches to a rather spartan interface.</p>
-<div class="figure">
-<img src="images/CMUS2.png" title="The File Browser" alt="File Browser" />
-<p class="caption">File Browser</p>
-</div>
-<p>The first step is to press &quot;5&quot; and then navigate to the location of the music to be played. Each track can be added by highlighting it and pressing &quot;a&quot;. According to its Git Hub page: &quot;cmus does not move, duplicate or change your files. It just remembers where they are and caches the meta-data [...]&quot;</p>
-<p>CMUS contains several different views, but the easiest to start with is the library view. Once the files have been added, the library view is reachable by pressing &quot;2&quot;.</p>
-<div class="figure">
-<img src="images/CMUS3.png" title="So much free music!" alt="The Library" />
-<p class="caption">The Library</p>
-</div>
-<p>Navigating to a song (using arrow keys) and pressing &quot;Enter&quot; will play the track. CMUS has keyboard shortcuts for moving forwards and backwards, pausing, volume control, and jumping to the next track.</p>
-<div class="figure">
-<img src="images/CMUS5.png" title="You can even adjust the volume from the command line." alt="Volume" />
-<p class="caption">Volume</p>
-</div>
-<p>Quiting is just a matter of pressing &quot;q&quot; and the confirming you want to quite with &quot;y&quot;.</p>
-<div class="figure">
-<img src="images/CMUS6.png" title="All good things must come to an end." alt="Quiting" />
-<p class="caption">Quiting</p>
-</div>
-<p>More information can be found here: <a href="https://cmus.github.io/">Main Page</a> <a href="https://cmus.github.io/#features">Feature List</a> <a href="https://github.com/cmus/cmus/wiki">CMUS Wiki</a> <a href="https://github.com/cmus/cmus/wiki/reviews">Other Resources</a></p>
-<h2 id="htop">HTOP</h2>
-<p>Htop is an alternative to the &quot;top&quot;command. It's used to monitor a system, much as one would with top, but provides more information, is more aesthetically pleasing, and has several advanced features. It makes it very easy to sort processes according to several different parameters, search for specific process, and send signals to them. It's particularly useful when trying to track down performance issues, or for finding and killing runaway processes.</p>
-Debian/Ubuntu Installation:
-<pre><code>sudo apt-get install htop</code></pre>
-<p><img src="images/HTOP.png" title="More intuitive and more powerful." alt="HTOP." /> <img src="images/TOP.png" title="Useful, but no where near as feature rich or convenient." alt="TOP." /></p>
-<p>More information can be found on the <a href="http://hisham.hm/htop/">HTOP Website</a>.</p>
-<h2 id="pandoc">Pandoc</h2>
-<p>Pandoc is a file conversion utility that lets you transform documents from one file type or markup to another. In the words of its creator: &quot;If you need to convert files from one markup format into another, pandoc is your swiss-army knife.&quot;</p>
-<p>There are many different scenarios in which pandoc can be useful; we'll focus on something simple here today, converting a LibreOffice ODT file into simple HTML.</p>
-<div class="figure">
-<img src="images/Pandoc1.png" title="A Simple Document with Formating" alt="Here, we have a simple document with just enough formating to see if pandoc can output clean HTML." />
-<p class="caption">Here, we have a simple document with just enough formating to see if pandoc can output clean HTML.</p>
-</div>
-<p>In this example, the syntax for the pandoc command is as follows:</p>
-<p>pandoc TestDoc.odt -s -o TestDoc.html</p>
-<p>&quot;pandoc&quot; calls the command, &quot;TestDoc.odt&quot; tells it which file to convert, the &quot;-s&quot; tells it to output to a standalone file (pandoc can also just output its result to standard out, allowing you to pipe it to another command), and the &quot;-o TestDoc.html&quot; tells it where to create the new file and what to call it.</p>
-<p>In this example, pandoc deduces the format of both the original document and the desired format of the output document by looking at the file endings, but there are optional parameters that would allow you to specify these things if you ever wanted to use an input or output file that wasn't labeled in that way.</p>
-<div class="figure">
-<img src="images/Pandoc2.png" title="Clean, efficient conversion." alt="Here, you can see that a new file has been created. The HTML code can be seen next to the cat command, and the resulting web page is rendered in Firefox on the left." />
-<p class="caption">Here, you can see that a new file has been created. The HTML code can be seen next to the cat command, and the resulting web page is rendered in Firefox on the left.</p>
-</div>
-Debian/Ubuntu Installation:
-<pre><code>sudo apt-get install pandoc</code></pre>
-<p>More information can be found on the <a href="http://pandoc.org/">Pandoc Website</a>.</p>
-<p>It's probably worth mentioning that this part of the website was written in markdown and later converted to HTML using Pandoc, with a command very similar to the one shown here.</p>
-<h2 id="powertop">PowerTOP</h2>
-<p>PowerTOP allows you to tune power settings on your computer.</p>
-If it's available in your repositories, PowerTOP is installed on Debian/Ubuntu systems with the command:
-<pre><code>sudo apt-get install powertop</code></pre>
-<p>PowerTOP has to be run with sudo:</p>
-<pre><code>sudo powertop</code></pre>
-<p>It gives you detailed stats about your device's power consumption, and lets you tune several settings to extend your battery life or reduce power consumption if you are plugged-in.</p>
-<p><img src="images/PowerTOP_Overview.png" title="The Overview Screen" alt="Overview" /> <img src="images/PowerTOP_DeviceStats1.png" title="Baseline Power Consumption" alt="Baseline Power Consumption" /> <img src="images/PowerTOP_Tunables1.png" title="Plenty of settings need to be tweaked." alt="Tunables Before Changes" /> <img src="images/PowerTOP_Tunables2.png" title="After letting powertop make the required changes" alt="Tunables After Changes" /> <img src="images/PowerTOP_DeviceStats2.png" title="Improved Power Consumption" alt="Improved Power Consumption" /></p>
-<p>It's important to note that while using PowerTOP is very easy, the changes it makes are fairly complex. It should only be used by more experienced users, or people experimenting on systems that aren't mission critical. There are reasons why not all of these settings are enabled by default and while PowerTOP can drastically improve battery life on some devices with only minor performance differences, it could cause serious issues in other scenarios.</p>
-<p>More information can be found on the <a href="https://01.org/powertop/">PowerTOP_Tunables2 Website</a>, in the <a href="https://wiki.archlinux.org/index.php/Powertop">Arch Linux Wiki</a>, or in this <a href="https://software.intel.com/en-us/articles/powertop-primer-1/">Intel Primer</a>.</p>
-<h2 id="taskwarrior">Taskwarrior</h2>
-<p>Taskwarrior is a very clever and polished command line task manager. It's simple, powerful, and can be lightning quick, especially if favorite commands (with defaulted settings) are aliased (as explained in the other tutorial on this site).</p>
-<p>The most basic Taskwarrior is triggered by the command &quot;task&quot;. Without any arguments, it will default to listing current tasks. &quot;task add&quot; will create a new task using whatever follows the &quot;add&quot; as a task name.</p>
-<div class="figure">
-<img src="images/Task1.png" title="Basics" alt="Listing and adding tasks" />
-<p class="caption">Listing and adding tasks</p>
-</div>
-<p>A priority setting can be added to a new task by following the &quot;task add&quot; with a priority argument. Below, the &quot;H&quot; is denotes that this is a high priority task. When looking at the new task list, it's clear that the new task is high priority.</p>
-<div class="figure">
-<img src="images/Task2.png" title="Dates" alt="Adding tasks with due dates" />
-<p class="caption">Adding tasks with due dates</p>
-</div>
-<p>Lets add a few more tasks and this time, we'll specify due dates and wait dates.</p>
-<div class="figure">
-<img src="images/Task3.png" title="More Tasks" alt="Adding more tasks" />
-<p class="caption">Adding more tasks</p>
-</div>
-<p>After adding another task with a lower priority, it's time to see what our task list looks like.</p>
-<div class="figure">
-<img src="images/Task4.png" title="Task Priority" alt="Taskwarrior sorts tasks by priority" />
-<p class="caption">Taskwarrior sorts tasks by priority</p>
-</div>
-<p>We can clearly see that Taskwarrior is listing the tasks with a priority first, with the highest priority at the top of the list.</p>
-<p>Taskwarrior can also understand relative due dates, such as &quot;due:now&quot;.</p>
-<div class="figure">
-<img src="images/Task5.png" title="Relative Dates" alt="Using relative dates" />
-<p class="caption">Using relative dates</p>
-</div>
-<p>Taskwarrior's urgency algorithm apparently thinks a missed deadline is even more urgent than a high priority task.</p>
-<p>Let's pad the list a little more.</p>
-<div class="figure">
-<img src="images/Task6.png" title="More Tasks" alt="Adding more tasks" />
-<p class="caption">Adding more tasks</p>
-</div>
-<p>Of course, there wouldn't be much of a point in making a task list if things couldn't get done and crossed off the list. In Taskwarrior, the command to mark a task as done is &quot;task [TheTaskNumber] done&quot;.</p>
-<div class="figure">
-<img src="images/Task7.png" title="Done" alt="Marking tasks as done" />
-<p class="caption">Marking tasks as done</p>
-</div>
-<p>&quot;Plan Taskwarrior Tutorial&quot; is now gone from the task list. If we needed to go back and look at it, or output a list of everything we got done on a particular day &quot;task completed&quot; would give us a list of completed tasks.</p>
-<div class="figure">
-<img src="images/Task8.png" title="Completed" alt="Completed List" />
-<p class="caption">Completed List</p>
-</div>
-<p>Taskwarrior also has a basic calendar view. The screenshot below shows a task list above the calendar view to make it easier to see how they match up.</p>
-<div class="figure">
-<img src="images/Task9.png" title="Calendar" alt="Calendar View" />
-<p class="caption">Calendar View</p>
-</div>
-<p>If we needed to change an existing task, we could type &quot;task [TheTaskNumber] modify&quot;, followed by the arguments being modified, to make the change. In the example below, the absence of a priority setting after &quot;priority:&quot; tells Taskwarrior to replace the existing priority setting with a null value.</p>
-<div class="figure">
-<img src="images/Task10.png" title="Modifying Tasks" alt="Modifying Tasks" />
-<p class="caption">Modifying Tasks</p>
-</div>
-<p>Changing a due date is easy:</p>
-<div class="figure">
-<img src="images/Task11.png" title="Changing Due Dates" alt="Changing Due Dates" />
-<p class="caption">Changing Due Dates</p>
-</div>
-<p>Now that we have more than one task due tomorrow, we can use that argument (&quot;task due:tomorrow&quot;) to search for all tasks due tomorrow.</p>
-<div class="figure">
-<img src="images/Task12.png" title="Sorting by due dates" alt="Listing tasks by due dates" />
-<p class="caption">Listing tasks by due dates</p>
-</div>
-<p>There is a lot more to Taskwarrior than the basic features covered here: it supports common task management features such as contexts, projects, and additional notes; it has advanced report generation capabilities; it's scriptable; it can be synchronized across devices using the Tasksever, or import/export data in JSON; there is also a rich set of additional tools that have been developed by the community.</p>
-<p>More information can be found on the <a href="https://taskwarrior.org/">Taskwarrior Website</a>, or in the <a href="https://taskwarrior.org/docs/">Project Documentation</a>. Links to additional tools can be found <a href="https://taskwarrior.org/tools/">here</a>.</p>
+  <h1 id="getting-more-done-on-the-command-line">Getting More Done on The Command Line</h1>
+  <p>While the other sections of this introduction have covered the most basic UNIX features that every beginner should focus on, this section is all about getting a taste of what else can be done on the command line. Command line apps can be used for a
+    variety of office productivity tasks (document production, spreadsheets, double-entry bookkeeping, journaling, presentation deck building, etc), media consumption, and system management. While command line apps might not have all the visual flourishes
+    of their graphical counterparts, many are incredibly powerful, flexible, and portable.</p>
+  <p>Their portability allows them to run on a wide variety of different software and hardware platforms, making it easier to run the same apps everywhere. Their minimalist, text-centric aesthetic can easily fit in wide variety of environments, and their
+    appearance is easily customized using existing terminal tools. Finally, many of them can be scripted in ways that are almost impossible to replicate in GUI apps. Below is a brief overview of some of the capabilities of five of these programs. It’s
+    impossible to list, let alone explain all of their features in such a short tutorial, but this will hopefully give a taste of what's possible and where to get started.</p>
+  <h2 id="cmus">CMUS</h2>
+  <p><strong>A quick note on content: All of the music used in this demo was downloaded from <a href="http://freemusicarchive.org/">The Free Music Archive</a> because I didn't have any actual music on the machine I used for this. I just grabbed a mix of their top hits / top alphabetical hits / a few random songs from their Christmas section because all of those things were easily linked on their home page. I'm in no way endorsing any of this music on aesthetic, grammatical, ideological, or religious grounds. It was free, legal and easy to download.</strong></p>
+  <p>CMUS is a command line music player. It can catalog audio across a complex file hierarchy and play them back from inside a terminal. It's particularly useful on a system with limited resources because of how lightweight it is, but it's also popular
+    among those who enjoy working in the terminal, or who simply appreciate its simplicity, reliability and impressive feature set.</p>
+  Debian/Ubuntu Installation:
+  <pre><code>sudo apt-get install cmus</code></pre>
+  <div class="figure">
+    <img src="images/CMUS1.png" title="Not much going on." alt="First Launch:" />
+    <p class="caption">First Launch:</p>
+  </div>
+  <p>CMUS launches to a rather spartan interface.</p>
+  <div class="figure">
+    <img src="images/CMUS2.png" title="The File Browser" alt="File Browser" />
+    <p class="caption">File Browser</p>
+  </div>
+  <p>The first step is to press &quot;5&quot; and then navigate to the location of the music to be played. Each track can be added by highlighting it and pressing &quot;a&quot;. According to its Git Hub page: &quot;cmus does not move, duplicate or change
+    your files. It just remembers where they are and caches the meta-data [...]&quot;</p>
+  <p>CMUS contains several different views, but the easiest to start with is the library view. Once the files have been added, the library view is reachable by pressing &quot;2&quot;.</p>
+  <div class="figure">
+    <img src="images/CMUS3.png" title="So much free music!" alt="The Library" />
+    <p class="caption">The Library</p>
+  </div>
+  <p>Navigating to a song (using arrow keys) and pressing &quot;Enter&quot; will play the track. CMUS has keyboard shortcuts for moving forwards and backwards, pausing, volume control, and jumping to the next track.</p>
+  <div class="figure">
+    <img src="images/CMUS5.png" title="You can even adjust the volume from the command line." alt="Volume" />
+    <p class="caption">Volume</p>
+  </div>
+  <p>Quiting is just a matter of pressing &quot;q&quot; and the confirming you want to quite with &quot;y&quot;.</p>
+  <div class="figure">
+    <img src="images/CMUS6.png" title="All good things must come to an end." alt="Quiting" />
+    <p class="caption">Quiting</p>
+  </div>
+  <p>More information can be found here: <a href="https://cmus.github.io/">Main Page</a> <a href="https://cmus.github.io/#features">Feature List</a> <a href="https://github.com/cmus/cmus/wiki">CMUS Wiki</a> <a href="https://github.com/cmus/cmus/wiki/reviews">Other Resources</a></p>
+  <h2 id="htop">HTOP</h2>
+  <p>Htop is an alternative to the &quot;top&quot;command. It's used to monitor a system, much as one would with top, but provides more information, is more aesthetically pleasing, and has several advanced features. It makes it very easy to sort processes
+    according to several different parameters, search for specific process, and send signals to them. It's particularly useful when trying to track down performance issues, or for finding and killing runaway processes.</p>
+  Debian/Ubuntu Installation:
+  <pre><code>sudo apt-get install htop</code></pre>
+  <p><img src="images/HTOP.png" title="More intuitive and more powerful." alt="HTOP." /> <img src="images/TOP.png" title="Useful, but no where near as feature rich or convenient." alt="TOP." /></p>
+  <p>More information can be found on the <a href="http://hisham.hm/htop/">HTOP Website</a>.</p>
+  <h2 id="pandoc">Pandoc</h2>
+  <p>Pandoc is a file conversion utility that lets you transform documents from one file type or markup to another. In the words of its creator: &quot;If you need to convert files from one markup format into another, pandoc is your swiss-army knife.&quot;</p>
+  <p>There are many different scenarios in which pandoc can be useful; we'll focus on something simple here today, converting a LibreOffice ODT file into simple HTML.</p>
+  <div class="figure">
+    <img src="images/Pandoc1.png" title="A Simple Document with Formating" alt="Here, we have a simple document with just enough formating to see if pandoc can output clean HTML." />
+    <p class="caption">Here, we have a simple document with just enough formating to see if pandoc can output clean HTML.</p>
+  </div>
+  <p>In this example, the syntax for the pandoc command is as follows:</p>
+  <p>pandoc TestDoc.odt -s -o TestDoc.html</p>
+  <p>&quot;pandoc&quot; calls the command, &quot;TestDoc.odt&quot; tells it which file to convert, the &quot;-s&quot; tells it to output to a standalone file (pandoc can also just output its result to standard out, allowing you to pipe it to another command),
+    and the &quot;-o TestDoc.html&quot; tells it where to create the new file and what to call it.</p>
+  <p>In this example, pandoc deduces the format of both the original document and the desired format of the output document by looking at the file endings, but there are optional parameters that would allow you to specify these things if you ever wanted
+    to use an input or output file that wasn't labeled in that way.</p>
+  <div class="figure">
+    <img src="images/Pandoc2.png" title="Clean, efficient conversion." alt="Here, you can see that a new file has been created. The HTML code can be seen next to the cat command, and the resulting web page is rendered in Firefox on the left." />
+    <p class="caption">Here, you can see that a new file has been created. The HTML code can be seen next to the cat command, and the resulting web page is rendered in Firefox on the left.</p>
+  </div>
+  Debian/Ubuntu Installation:
+  <pre><code>sudo apt-get install pandoc</code></pre>
+  <p>More information can be found on the <a href="http://pandoc.org/">Pandoc Website</a>.</p>
+  <p>It's probably worth mentioning that this part of the website was written in markdown and later converted to HTML using Pandoc, with a command very similar to the one shown here.</p>
+  <h2 id="powertop">PowerTOP</h2>
+  <p>PowerTOP allows you to tune power settings on your computer.</p>
+  If it's available in your repositories, PowerTOP is installed on Debian/Ubuntu systems with the command:
+  <pre><code>sudo apt-get install powertop</code></pre>
+  <p>PowerTOP has to be run with sudo:</p>
+  <pre><code>sudo powertop</code></pre>
+  <p>It gives you detailed stats about your device's power consumption, and lets you tune several settings to extend your battery life or reduce power consumption if you are plugged-in.</p>
+  <p><img src="images/PowerTOP_Overview.png" title="The Overview Screen" alt="Overview" /> <img src="images/PowerTOP_DeviceStats1.png" title="Baseline Power Consumption" alt="Baseline Power Consumption" /> <img src="images/PowerTOP_Tunables1.png" title="Plenty of settings need to be tweaked."
+      alt="Tunables Before Changes" /> <img src="images/PowerTOP_Tunables2.png" title="After letting powertop make the required changes" alt="Tunables After Changes" /> <img src="images/PowerTOP_DeviceStats2.png" title="Improved Power Consumption" alt="Improved Power Consumption"
+    /></p>
+  <p>It's important to note that while using PowerTOP is very easy, the changes it makes are fairly complex. It should only be used by more experienced users, or people experimenting on systems that aren't mission critical. There are reasons why not all
+    of these settings are enabled by default and while PowerTOP can drastically improve battery life on some devices with only minor performance differences, it could cause serious issues in other scenarios.</p>
+  <p>More information can be found on the <a href="https://01.org/powertop/">PowerTOP_Tunables2 Website</a>, in the <a href="https://wiki.archlinux.org/index.php/Powertop">Arch Linux Wiki</a>, or in this <a href="https://software.intel.com/en-us/articles/powertop-primer-1/">Intel Primer</a>.</p>
+  <h2 id="taskwarrior">Taskwarrior</h2>
+  <p>Taskwarrior is a very clever and polished command line task manager. It's simple, powerful, and can be lightning quick, especially if favorite commands (with defaulted settings) are aliased (as explained in the other tutorial on this site).</p>
+  <p>The most basic Taskwarrior is triggered by the command &quot;task&quot;. Without any arguments, it will default to listing current tasks. &quot;task add&quot; will create a new task using whatever follows the &quot;add&quot; as a task name.</p>
+  <div class="figure">
+    <img src="images/Task1.png" title="Basics" alt="Listing and adding tasks" />
+    <p class="caption">Listing and adding tasks</p>
+  </div>
+  <p>A priority setting can be added to a new task by following the &quot;task add&quot; with a priority argument. Below, the &quot;H&quot; is denotes that this is a high priority task. When looking at the new task list, it's clear that the new task is high
+    priority.</p>
+  <div class="figure">
+    <img src="images/Task2.png" title="Dates" alt="Adding tasks with due dates" />
+    <p class="caption">Adding tasks with due dates</p>
+  </div>
+  <p>Lets add a few more tasks and this time, we'll specify due dates and wait dates.</p>
+  <div class="figure">
+    <img src="images/Task3.png" title="More Tasks" alt="Adding more tasks" />
+    <p class="caption">Adding more tasks</p>
+  </div>
+  <p>After adding another task with a lower priority, it's time to see what our task list looks like.</p>
+  <div class="figure">
+    <img src="images/Task4.png" title="Task Priority" alt="Taskwarrior sorts tasks by priority" />
+    <p class="caption">Taskwarrior sorts tasks by priority</p>
+  </div>
+  <p>We can clearly see that Taskwarrior is listing the tasks with a priority first, with the highest priority at the top of the list.</p>
+  <p>Taskwarrior can also understand relative due dates, such as &quot;due:now&quot;.</p>
+  <div class="figure">
+    <img src="images/Task5.png" title="Relative Dates" alt="Using relative dates" />
+    <p class="caption">Using relative dates</p>
+  </div>
+  <p>Taskwarrior's urgency algorithm apparently thinks a missed deadline is even more urgent than a high priority task.</p>
+  <p>Let's pad the list a little more.</p>
+  <div class="figure">
+    <img src="images/Task6.png" title="More Tasks" alt="Adding more tasks" />
+    <p class="caption">Adding more tasks</p>
+  </div>
+  <p>Of course, there wouldn't be much of a point in making a task list if things couldn't get done and crossed off the list. In Taskwarrior, the command to mark a task as done is &quot;task [TheTaskNumber] done&quot;.</p>
+  <div class="figure">
+    <img src="images/Task7.png" title="Done" alt="Marking tasks as done" />
+    <p class="caption">Marking tasks as done</p>
+  </div>
+  <p>&quot;Plan Taskwarrior Tutorial&quot; is now gone from the task list. If we needed to go back and look at it, or output a list of everything we got done on a particular day &quot;task completed&quot; would give us a list of completed tasks.</p>
+  <div class="figure">
+    <img src="images/Task8.png" title="Completed" alt="Completed List" />
+    <p class="caption">Completed List</p>
+  </div>
+  <p>Taskwarrior also has a basic calendar view. The screenshot below shows a task list above the calendar view to make it easier to see how they match up.</p>
+  <div class="figure">
+    <img src="images/Task9.png" title="Calendar" alt="Calendar View" />
+    <p class="caption">Calendar View</p>
+  </div>
+  <p>If we needed to change an existing task, we could type &quot;task [TheTaskNumber] modify&quot;, followed by the arguments being modified, to make the change. In the example below, the absence of a priority setting after &quot;priority:&quot; tells Taskwarrior
+    to replace the existing priority setting with a null value.</p>
+  <div class="figure">
+    <img src="images/Task10.png" title="Modifying Tasks" alt="Modifying Tasks" />
+    <p class="caption">Modifying Tasks</p>
+  </div>
+  <p>Changing a due date is easy:</p>
+  <div class="figure">
+    <img src="images/Task11.png" title="Changing Due Dates" alt="Changing Due Dates" />
+    <p class="caption">Changing Due Dates</p>
+  </div>
+  <p>Now that we have more than one task due tomorrow, we can use that argument (&quot;task due:tomorrow&quot;) to search for all tasks due tomorrow.</p>
+  <div class="figure">
+    <img src="images/Task12.png" title="Sorting by due dates" alt="Listing tasks by due dates" />
+    <p class="caption">Listing tasks by due dates</p>
+  </div>
+  <p>There is a lot more to Taskwarrior than the basic features covered here: it supports common task management features such as contexts, projects, and additional notes; it has advanced report generation capabilities; it's scriptable; it can be synchronized
+    across devices using the Tasksever, or import/export data in JSON; there is also a rich set of additional tools that have been developed by the community.</p>
+  <p>More information can be found on the <a href="https://taskwarrior.org/">Taskwarrior Website</a>, or in the <a href="https://taskwarrior.org/docs/">Project Documentation</a>. Links to additional tools can be found <a href="https://taskwarrior.org/tools/">here</a>.</p>
 </body>
+
 </html>
