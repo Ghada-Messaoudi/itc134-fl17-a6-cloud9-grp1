@@ -1,0 +1,185 @@
+AARON POWER USERS TXT FOR CLOUD 9 PROJECT
+
+First off, check out Chapters 2 and 3 in great UNIX reference book
+"UNIX for Programmers and Users"
+Third Edition
+Authors:  Graham Glass, King Ables
+(C) 2003
+Publisher:  Pearson Education, Inc.
+ISBN : 0-13-046553-4
+
+Do google search of “regular expressions for beginners”
+Link to TechGeeks webpage
+Need to have adequate typing skills.  Go to www.typingclub.com for typing improvement practicing.
+Need to proficient in vi/vim/gvim text editor.
+Check out perl-stuff in google and Glass/Ables UNIX reference book listed at beginning of this document.
+
+
+
+
+    FIRST, let’s create less typing user-tailor-made-command-aliases
+    This will be source file in BASH-command-shell syntax.
+First off, in your favorite text editor, in your UNIX home dir, create following file:  ~/alias.sh
+
+* * * BEGIN TEXT HERE
+#!/bin/bash
+
+
+echo 'Hello World.'
+
+echo 'Hello World.'
+
+
+
+alias goweb='cd /cygdrive/u/Desktop/web110'
+
+alias gvim=' ~/../../bin/gvim.exe'
+alias gv=' ~/../../bin/gvim.exe'
+
+alias xterm=' ~/../../bin/minnty.exe'
+alias xt=' ~/../../bin/mintty.exe'
+
+alias tkdiff=' ~/../../bin/tkdiff.exe'
+alias tk=' ~/../../bin/tkdiff.exe'
+
+
+alias cls='clear '
+
+
+alias md='mkdir -p '
+alias rd='rmdir  '
+
+alias up=' cd .. ; pwd '
+alias up2='cd ../.. ; pwd '
+alias up3='cd ../../.. ; pwd '
+alias up4='cd ../../.. ; pwd '
+
+alias h='history '
+
+alias d='ls -d */ | sed  "s/\/\//\//"  '
+
+alias ll='ls -alrt'
+alias lsf='ls -alrt | grep "^-" | awk "{print \$10}"  '
+alias lsd='ls -alrt | grep "^d" '
+alias lsl='ls -alrt | grep "^l" '
+
+alias m='more '
+
+
+echo '    FOREACH IN BASH BELOW'
+echo 'for i in `ls README* ` ; do '
+echo '    echo $i   '
+echo '    echo ...  '
+echo '    done  '
+
+echo ' '
+echo ' '
+echo ' '
+
+echo '    FOREACH IN BASH BELOW'
+echo 'for i in {1..10} ; do '
+echo '    echo $i   '
+echo '    echo ...  '
+echo '    done  '
+
+echo 'CHECK OUT WEBSITE   http://go2linux.garron.me/bash-for-loop/ '
+
+
+* * * END   TEXT HERE
+
+
+    Now, at UNIX cmd prompt, source your newly created file.
+
+source alias.sh
+
+
+
+
+Now if you did this BASH shell text file in WINDOWS, yeah, we’ve exposed you to nuance with Windows vs. Linux text files.  
+
+    Instead of getting good echo print statements and cool, less typing aliases, you get 
+
+-bash: $'\r': command not found
+-bash: $'\r': command not found
+
+To clean this up, use dos2unix command.  If not available, means you need to download cmd and related packages for your UNIX/Linux install flow; “should not be a big deal.”  Else, you following command-line-text-invocation…
+
+cp alias.sh _temp_file && tr -d '\r' < _temp_file > alias.sh  && rm _temp_file
+
+
+So, re-source your new aliases file
+	source alias.sh
+
+Now play around with the aliases.  See what they can do :)
+Points of interest are:
+ lsd, lsl, lsf
+ cat, more, less, head, tail, tail -f (see rolling live end of file text appending/streaming.
+Check out  up, up2, up3, up4  as quick ways to go up 1, 2, 3, and 4 parent directories upwards.  Vs. typing again and again ‘cd .. ; cd .. ; cd .. ; cd .. ; “
+Google search and play around with “grep”  and “egrep”.  “egrep -v PATTERN “  will search for and print out lines without PATTERN matching.
+Check out mkdir -p FULL/DIR/LISTING   or   md FULL/DIR/LISTING .  Which will create following full_dir_path of  ~/FULL/DIR/LISTING.
+Quick-pwd-changer:  MEANING LESS EXHAUSTIVE TYPING and nuanced/forgets pusd-and-popd commands.
+
+alias gohome='cd / ; pwd'
+
+alias gowork='cd /cygdrive/c/Program\ Files\ \(x86\)/WindowsPowerShell/Modules ; pwd '
+
+      Then type “gowork”  then type “gohome”  and see what quick navigation you can now exploit and invocate.  	
+
+
+
+
+
+
+
+By the way, dos2unix command has counterpart command unix2dos.
+
+
+Next: sed   sed stands for Stream EDitor utility.
+Instead of editing files long way one-by-one, how about make a few to a lot of edits to a few to a lot of files?!?  sed uses regular expressions for exotic pattern matching.  Do google search on “regular expressions for beginners”
+
+    EXAMPLES:
+
+sed ‘s/^/# /’ PYTHON_FILE.py > FULLY_COMMENTED_PYTHON_FILE.py
+    This is put “#” python line-commenter at beginning of EVERY line using the regular expression text beginning of every line anchor “^”.
+
+sed ‘s/ red / blue /’ PYTHON_FILE.py > RED_TO_BLUE_PYTHON_FILE.py
+    This replaces every “ red “ text pattern with “ blue “ text pattern.  Note, “ red. “ would not get replaced.
+
+sed ‘ red /d’ PYTHON_FILE.py > RED_REMOVED_FROM_PYTHON_FILE.py
+    This deletes every line containing “ red “ text pattern.
+
+
+
+
+
+Next: awk   awk stands for authors Aho, Weinberger, and Kernighan.  ANOTHER TEXT utility.  This utility is really good at parsing/editing via text columns.  
+
+    Let’s look at example excerpt:
+            ls -l
+-rwxr-xr-x 1 ntmoe allewis151  906771 Oct 11 16:23  setup-x86_64.exe
+drwxr-xr-x 1 ntmoe allewis151       0 Oct 11 17:09  tmp
+drwxr-xr-x 1 ntmoe allewis151       0 Oct 11 17:09  usr
+drwxr-xr-x 1 ntmoe allewis151       0 Oct 11 16:53  var
+drwxr-xr-x 1 ntmoe allewis151       0 Mar 18  2016  Vim
+
+Would it not be nice to should only the last column, the one with file-name?  Well, try out this command at command line:
+        ls -l | awk "{print \$9}"
+                   You get:
+setup-x86_64.exe
+tmp
+usr
+var
+Vim
+
+
+
+
+
+
+
+
+
+
+
+
+
